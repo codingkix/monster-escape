@@ -1,0 +1,27 @@
+.Header{
+  height: 6rem;
+  box-sizing: border-box;
+  border-bottom: 1px #313131 solid;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Header-logo {
+  animation: logo-scale infinite 5s linear alternate;
+  height: 4rem;
+  width: 4rem;
+  color: #311B92;
+}
+
+.Header-title {
+  font-size: 1.5em;
+  margin: 0 2rem;
+  color: #313131;
+}
+
+@keyframes logo-scale {
+  from { transform: scale(1,1); }
+  to { transform: scale(1.5,1.5); }
+}

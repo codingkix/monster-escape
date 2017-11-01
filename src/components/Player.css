@@ -1,0 +1,7 @@
+.Player {
+  width: 4rem;
+  height: 4rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 6px;
+}

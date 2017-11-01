@@ -1,0 +1,18 @@
+
+.Square{
+  width: 4rem;
+  height: 4rem;
+  position: relative;
+}
+
+.Square::after{
+  content: '';
+  z-index: 1;
+  position: absolute;
+  top:2px;
+  left:2px;
+  right: 2px;
+  bottom: 2px;
+  background: #fff;
+  border-radius: 3px;
+}

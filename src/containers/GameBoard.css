@@ -1,0 +1,21 @@
+.Board{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Board-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  width: 36rem;
+  height: 24rem;
+  border: 8px solid #2e2e2e;
+  background-color: #2e2e2e;
+  border-radius: 8px;  
+}
+
+
+.player{
+  background-color: transparent;
+}

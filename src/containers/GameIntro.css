@@ -1,0 +1,15 @@
+.Intro{
+  display: flex;
+  border-bottom: 1px solid #313131;
+  height: 14rem;
+  align-items:center;
+  justify-content: space-around;
+  padding: 0 5rem;
+}
+
+.Intro-panel{
+  width: 15rem;
+  height: 10rem;
+  background: #313131;
+  border-radius: 8px;
+}
