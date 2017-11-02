@@ -16,7 +16,7 @@ class GameIntro extends PureComponent {
         </div>
         <div className='Intro-panel'>
           <div className='Intro-text'>
-            Press arrow keys to escape from monsters chasing
+            Press arrow keys to escape from monsters chasing.
           </div>
         </div>
       </section>

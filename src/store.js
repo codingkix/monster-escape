@@ -21,7 +21,8 @@ const initState = {
   board: {
     squares,
     status: ''
-  }
+  },
+  timmer: 0
 }
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

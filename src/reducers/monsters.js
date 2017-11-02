@@ -1,7 +1,4 @@
-import _ from 'lodash'
-
 import { SET_MONSTERS, TICK, RESET } from '../actions/types'
-import { DIRECTIONS } from '../constants/settings'
 import { getNextMoveIndex, getOppositeDirection } from '../utilities'
 
 const initialState = []
@@ -9,14 +6,7 @@ const initialState = []
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_MONSTERS:
-      const ids = action.payload
-      const newMonsters = _.times(ids.length, i => ({
-        id: ids[i],
-        direction: DIRECTIONS[_.random(3)],
-        preIndex: -1,
-        currentIndex: ids[i]
-      }))
-      return state.concat(newMonsters)
+      return state.concat(action.payload)
     case TICK:
       const { monsters } = action.payload
       return monsters.map(monster => {

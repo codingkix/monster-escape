@@ -3,9 +3,10 @@ import React from 'react'
 import './Monster.css'
 
 const Monster = props => {
+  const { id } = props
   return (
     <div {...props} className='Monster'>
-      <i className='fa fa-optin-monster' />
+      <i id={id} className='fa fa-optin-monster' />
     </div>
   )
 }

@@ -11,6 +11,13 @@ const GAME_STATUS = {
   end: 'end'
 }
 
+// base level is keeping alive for 10 seconds
+const BASE_LEVEL = 10
+// initial monsters number is 3
+const BASE_MONSTERS = 3
+// increase 2 monsters by each level
+const LEVEL_UP_MONSTERS = 2
+
 export {
   BOARD_HEIGHT,
   BOARD_WIDTH,
@@ -20,5 +27,8 @@ export {
   RIGHT,
   DOWN,
   DIRECTIONS,
-  GAME_STATUS
+  GAME_STATUS,
+  BASE_LEVEL,
+  BASE_MONSTERS,
+  LEVEL_UP_MONSTERS
 }
