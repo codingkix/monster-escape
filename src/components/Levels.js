@@ -16,7 +16,9 @@ const Levels = props => {
   const num = BASE_MONSTERS + LEVEL_UP_MONSTERS * (levels - 1)
   return (
     <div className='Levels'>
-      <p className='Levels-num'>{levels}</p>
+      <p className='Levels-trophy'>
+        <span className='Levels-num'>{levels}</span>
+      </p>
       <p className='Levels-monster'>
         {num} <i className='fa fa-optin-monster' /> are chasing
       </p>
