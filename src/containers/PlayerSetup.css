@@ -1,0 +1,38 @@
+.Player-wrapper{
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.Player-info{
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Player-info_input{
+  outline: none;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  color: #222;
+  border: 0;
+  padding: 5px;
+  width: 80%;
+  background: rgba(209, 206, 206, .8);
+  border-radius: 4px;
+}
+
+.Player-info_img{
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+}
+
+.Player-info_name{
+  height: 2rem;
+  font-size: 1.3rem;
+  font-weight: bolder;
+}

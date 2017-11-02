@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import * as actions from '../actions'
 import { generateMonsters } from '../utilities'
 
+import './PlayerSetup.css'
 class PlayerSetup extends Component {
   state = {
     name: ''
@@ -42,12 +43,13 @@ class PlayerSetup extends Component {
     }
   }
 
-  renderPlayer = player => {
+  renderSetup = player => {
     const { name, avatar } = player
     if (!name) {
       return (
-        <form className='Player-form' onSubmit={this.onSubmit} noValidate>
+        <form className='Player-info' onSubmit={this.onSubmit} noValidate>
           <input
+            className='Player-info_input'
             type='text'
             placeholder='Type a name'
             autoComplete='off'
@@ -61,9 +63,9 @@ class PlayerSetup extends Component {
     }
 
     return (
-      <p>
-        <img src={avatar} alt={name} />
-        <label>{name}</label>
+      <p className='Player-info'>
+        <img src={avatar} alt={name} className='Player-info_img' />
+        <label className='Player-info_name'>I'm {name}</label>
       </p>
     )
   }
@@ -71,7 +73,7 @@ class PlayerSetup extends Component {
   render () {
     return (
       <div className='Player-wrapper'>
-        {this.renderPlayer(this.props.player)}
+        {this.renderSetup(this.props.player)}
       </div>
     )
   }

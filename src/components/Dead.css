@@ -1,0 +1,21 @@
+.Dead{
+  width: 4rem;
+  height: 4rem;
+  position: relative;  
+
+}
+
+.Dead::after{
+  background-color: rgb(190, 0, 0);
+  border-radius: 6px;
+  z-index: 2;
+  position: absolute;
+  top:2px;
+  left:2px;
+  right:2px;
+  bottom: 2px;
+  content: '';
+  background-image: url('./risk-skull.png');
+  background-position: center;
+  background-size: contain;
+}
