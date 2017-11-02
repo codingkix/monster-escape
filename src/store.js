@@ -1,29 +1,35 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
 import _ from 'lodash'
 
 import reducers from './reducers'
 import { NUMBER_SQUARES } from './constants/settings'
 
-const board = _.times(NUMBER_SQUARES, i => ({
-  id: i,
-  player: false,
-  monster: false
+const squares = _.times(NUMBER_SQUARES, i => ({
+  id: i
 }))
 
 const initState = {
   player: {
     name: '',
     avatar: '',
-    id: -1
+    id: -1,
+    currentIndex: -1,
+    preIndex: -1
   },
   monsters: [],
-  board
+  board: {
+    squares,
+    status: ''
+  }
 }
 /* eslint-disable no-underscore-dangle */
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
 const store = createStore(
   reducers,
   initState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeEnhancers(applyMiddleware(thunk))
 )
 /* eslint-enable */
 

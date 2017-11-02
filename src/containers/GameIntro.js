@@ -10,10 +10,14 @@ class GameIntro extends PureComponent {
           <PlayerSetup />
         </div>
         <div className='Intro-panel'>
-          2. click on board to pick a start point.
+          <div className='Intro-text'>
+            Click on board to pick your position. Game starts then.
+          </div>
         </div>
         <div className='Intro-panel'>
-          3. press arrow keys to escape from monsters chasing
+          <div className='Intro-text'>
+            Press arrow keys to escape from monsters chasing
+          </div>
         </div>
       </section>
     )

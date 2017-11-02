@@ -6,6 +6,11 @@ const [LEFT, UP, RIGHT, DOWN] = [37, 38, 39, 40]
 
 const DIRECTIONS = ['left', 'right', 'up', 'down']
 
+const GAME_STATUS = {
+  running: 'running',
+  end: 'end'
+}
+
 export {
   BOARD_HEIGHT,
   BOARD_WIDTH,
@@ -14,5 +19,6 @@ export {
   UP,
   RIGHT,
   DOWN,
-  DIRECTIONS
+  DIRECTIONS,
+  GAME_STATUS
 }
