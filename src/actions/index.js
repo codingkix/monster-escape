@@ -12,7 +12,13 @@ import {
   TICK
 } from './types'
 
-import { GAME_STATUS, DIRECTIONS } from '../constants/settings'
+import {
+  GAME_STATUS,
+  DIRECTIONS,
+  BASE_LEVEL,
+  LEVEL_UP_MONSTERS
+} from '../constants/settings'
+import { generateMonsters } from '../utilities'
 
 const createPlayer = name => ({
   type: SET_PLAYER,
@@ -39,7 +45,7 @@ const start = () => {
     dispatch({ type: START })
 
     const intervalId = setInterval(() => {
-      const { board, player, monsters } = getState()
+      const { board, player, monsters, timmer } = getState()
       if (board.status === GAME_STATUS.running) {
         // check game end for each tick.
         // DEAD, if player's currentIndex is the same as one of monsters
@@ -54,7 +60,20 @@ const start = () => {
         const changedMonsters = monsters.map(monster => {
           return { ...monster, direction: DIRECTIONS[_.random(0, 3)] }
         })
-        dispatch({ type: TICK, payload: { player, monsters: changedMonsters } })
+        let newMonsters = []
+        // check if levelup
+        // if levelup, add more monsters on board
+        if (timmer > 0 && timmer % BASE_LEVEL === 0) {
+          newMonsters = generateMonsters(
+            changedMonsters,
+            player,
+            LEVEL_UP_MONSTERS
+          )
+        }
+        dispatch({
+          type: TICK,
+          payload: { player, monsters: changedMonsters.concat(newMonsters) }
+        })
       } else {
         clearInterval(intervalId)
       }

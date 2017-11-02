@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
+
 import './GameBoard.css'
 import * as actions from '../actions'
 
-import { Player, Monster, Square, Dead } from '../components/'
+import { Timmer, Levels, Player, Monster, Square, Dead } from '../components/'
 import { LEFT, UP, RIGHT, DOWN, GAME_STATUS } from '../constants/settings'
 
 class GameBoard extends Component {
@@ -45,7 +46,6 @@ class GameBoard extends Component {
   // ------------ Events handlers --------------//
   /**
    * Handler of clicking on a square of the board.
-   * If player's ID is already set, return.
    * If picked the same spot with one of the monsters, return. //TODO: give warning
    * Otherwise, dispatch pickPosition action.
    */
@@ -53,11 +53,14 @@ class GameBoard extends Component {
     e.preventDefault()
     const { player, monsters, gameActions } = this.props
 
-    if (player.id >= 0) {
+    // If player's ID is already set or play's name is not ready, return.
+    if (player.id >= 0 || player.name === '') {
       return
     }
+
     const pickedId = parseInt(e.target.id, 10)
-    if (monsters.indexOf(pickedId) > -1) {
+
+    if (monsters.findIndex(m => m.id === pickedId) > -1) {
       return
     }
 
@@ -119,21 +122,30 @@ class GameBoard extends Component {
   }
 
   render () {
+    const { timmer, player } = this.props
+
     return (
       <section className='Board'>
-        <div className='Board-wrapper' onClick={this.onBoardClick}>
-          {this.renderSquares()}
+        <div className='Board-levels-wrapper'>
+          {player.name.length > 0 && <Levels timmer={timmer} />}
         </div>
-        {this.renderGameover()}
+        <div className='Board-center'>
+          <div className='Board-wrapper' onClick={this.onBoardClick}>
+            {this.renderSquares()}
+          </div>
+          {this.renderGameover()}
+        </div>
+        <Timmer timmer={timmer} />
       </section>
     )
   }
 }
 
-const mapStateToProps = ({ player, monsters, board }) => ({
+const mapStateToProps = ({ player, monsters, board, timmer }) => ({
   player,
   monsters,
-  board
+  board,
+  timmer
 })
 
 const mapDispatchToProps = dispatch => ({

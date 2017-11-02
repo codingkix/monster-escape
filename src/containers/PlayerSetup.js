@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import * as actions from '../actions'
+import { BASE_MONSTERS } from '../constants/settings'
 import { generateMonsters } from '../utilities'
 
 import './PlayerSetup.css'
@@ -13,8 +14,6 @@ class PlayerSetup extends Component {
 
   /**
    * Clear inputbox and state
-   *
-   * @memberof Player
    */
   clearInput = () => {
     this.setState({ name: '' })
@@ -27,17 +26,15 @@ class PlayerSetup extends Component {
 
   /**
    * Submit player name and dispatch createPlayer and createMonsters actions
-   *
-   * @memberof Player
    */
   onSubmit = e => {
     e.preventDefault()
     const name = this.state.name.trim()
-    const { createPlayer, createMonsters } = this.props.gameActions
+    const { player, gameActions: { createPlayer, createMonsters } } = this.props
     if (name.length) {
       createPlayer(name)
-      // init 4 monsters' positions at board
-      const monsters = generateMonsters([], null, 4)
+      // initial monsters' positions at board
+      const monsters = generateMonsters([], player, BASE_MONSTERS)
       createMonsters(monsters)
       this.clearInput()
     }
