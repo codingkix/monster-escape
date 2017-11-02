@@ -3,6 +3,26 @@ This is a web based game app.
 The project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 And the main dev stack including: react, redux, react-redux, redux-thunk, lodash.
 
+## Game Rules
+
+### Start Game
+After enter your player name, and click on any Square on board as starting position. Game would start and monsters are chasing you now. 
+
+### Player Move
+You can press the arrow keys on keyboard (up, down, left, right) to give the player a direction at any moment. Your player will move towards the direction by itself until you change it again.
+
+### Monster Move
+All monsters at board will move automatically and may change their directions randomly, so be careful!
+
+### Hit Wall
+If any piece hit the border of the board, it will turn to opposite direction from next move automatically. e.g. When hitting the left wall, it will turn to the right direction next.
+
+### Level Up
+If you survive every 10 seconds, you got LEVEL UP. And there will be two more monsters added to the board to make your next level more challenging.
+
+### Game Over
+At any moment, when you got caught by a monster, the player is DEAD. Game Over!
+
 ## Available Scripts
 
 In the project directory, you can run:

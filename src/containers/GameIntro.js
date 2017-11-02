@@ -11,7 +11,7 @@ class GameIntro extends PureComponent {
         </div>
         <div className='Intro-panel'>
           <div className='Intro-text'>
-            Click on board to pick your position. Game starts then.
+            Click on board to pick your position to start the Game.
           </div>
         </div>
         <div className='Intro-panel'>
