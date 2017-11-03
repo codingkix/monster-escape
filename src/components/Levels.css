@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  font-family: 'VT323';  
+  font-family: 'VT323', monospace;
 }
 
 .Levels-trophy{

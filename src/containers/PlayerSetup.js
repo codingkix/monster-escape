@@ -48,11 +48,12 @@ class PlayerSetup extends Component {
           <input
             className='Player-info_input'
             type='text'
-            placeholder='Type a name'
+            placeholder='Enter a name'
             autoComplete='off'
             autoFocus
             maxLength='16'
             onChange={this.onNameChange}
+            onBlur={this.onSubmit}
             value={this.state.name}
           />
         </form>
