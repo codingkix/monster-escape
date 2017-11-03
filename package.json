@@ -1,13 +1,14 @@
 {
   "name": "monster-escape",
   "homepage": "https://codingkix.github.io/monster-escape",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Junchao Zhang (codingkix)",
   "repository": "https://github.com/codingkix/monster-escape.git",
   "private": false,
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.5",
+    "fscreen": "^1.0.2",
     "gh-pages": "^1.0.0",
     "lodash": "^4.17.4",
     "react": "^16.0.0",
